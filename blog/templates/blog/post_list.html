@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>All Posts</h2>
+    {% for post in posts %}
+        <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+        <p>By {{ post.author }} on {{ post.published_date|date:"F d, Y" }}</p>
+        <p>{{ post.content|truncatewords:30 }}</p>
+    {% endfor %}
+{% endblock %}
